@@ -2,18 +2,18 @@ import 'package:brincadeirasleves/component/color_button.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(ContadorApp());
+  runApp(ColorPickerApp());
 }
 
-class ContadorApp extends StatefulWidget {
+class ColorPickerApp extends StatefulWidget {
   @override
-  State<ContadorApp> createState() => _ContadorAppState();
+  State<ColorPickerApp> createState() => _ContadorAppState();
 }
 
-class _ContadorAppState extends State<ContadorApp> {
+class _ContadorAppState extends State<ColorPickerApp> {
   int contador = 0;
   MaterialColor _currentcolor = Colors.green;
-  String _cor = 'teste';
+  String _cor = 'Green';
 
   @override
   Widget build(BuildContext context) {
@@ -21,31 +21,22 @@ class _ContadorAppState extends State<ContadorApp> {
       theme: ThemeData(primarySwatch: _currentcolor),
       home: Scaffold(
         backgroundColor: Colors.white10,
-        appBar: AppBar(title: Text('Color picker')),
+        appBar: AppBar(title: const Text('Color picker')),
         body: Column(children: [
           Padding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 top: 50.0,
                 bottom: 50.0,
               ),
               child: Text(
                 'Current Color: ' + _cor,
-                style: TextStyle(color: Colors.white, fontSize: 24.0),
+                style: const TextStyle(color: Colors.white, fontSize: 24.0),
               )),
           Center(
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                GestureDetector(
-                  child: ColorButton(Colors.green, 'Green'),
-                  onTap: () {
-                    setState(() {
-                      _currentcolor = Colors.green;
-                      _cor = 'Green';
-                    });
-                  },
-                ),
-                GestureDetector(
+                InkWell(
                   child: ColorButton(Colors.red, 'Red'),
                   onTap: () {
                     setState(() {
@@ -54,7 +45,7 @@ class _ContadorAppState extends State<ContadorApp> {
                     });
                   },
                 ),
-                GestureDetector(
+                InkWell(
                   child: ColorButton(Colors.blue, 'Blue'),
                   onTap: () {
                     setState(() {
@@ -63,7 +54,7 @@ class _ContadorAppState extends State<ContadorApp> {
                     });
                   },
                 ),
-                GestureDetector(
+                InkWell(
                   child: ColorButton(Colors.pink, 'Pink'),
                   onTap: () {
                     setState(() {
@@ -72,7 +63,7 @@ class _ContadorAppState extends State<ContadorApp> {
                     });
                   },
                 ),
-                GestureDetector(
+                InkWell(
                   child: ColorButton(Colors.orange, 'Orange'),
                   onTap: () {
                     setState(() {
@@ -81,7 +72,7 @@ class _ContadorAppState extends State<ContadorApp> {
                     });
                   },
                 ),
-                GestureDetector(
+                InkWell(
                   child: ColorButton(Colors.yellow, 'Yellow'),
                   onTap: () {
                     setState(() {
@@ -90,6 +81,15 @@ class _ContadorAppState extends State<ContadorApp> {
                     });
                   },
                 ),
+                InkWell(
+                  child: ColorButton(Colors.green, 'Green'),
+                  onTap: () {
+                    setState(() {
+                      _currentcolor = Colors.green;
+                      _cor = 'Green';
+                    });
+                  },
+                )
               ])),
         ]),
       ),
